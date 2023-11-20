@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <!-- Vue.js 3.3.8 -->
+     <script src="https://unpkg.com/vue@3.3.8/dist/vue.global.js"></script>
+     <!-- Google Fonts: Lato -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;400&display=swap" rel="stylesheet">
+     <!-- Axios 1.6.2 -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="generaEmail">Genera Email</button>
+
+        <!-- Lista di email visualizzata solo quando sono state generate tutte e 10 le email -->
+        <ul v-if="emailGenerati.length === 10">
+             <!-- Itera attraverso ogni email generata e le mostra come elementi della lista -->
+          <li v-for="(email, index) in emailGenerati" :key="index">{{ email }}</li>
+        </ul>
+
+        <!-- Paragrafo mostrato quando le email non sono ancora state generate tutte -->
+        <p v-else>Attendere il completamento della generazione delle email...</p>
+
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
